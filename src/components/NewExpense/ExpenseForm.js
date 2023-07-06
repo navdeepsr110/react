@@ -14,7 +14,7 @@ const [enteredDate, setEnteredDate] = useState('');
 // });
 
    const titleChangeHandler = (event) => {
-      setEnteredTitle(event.target.value);
+      setEnteredTitle(event.target.value); // used to save the value
     // setUserInput({
     //     ...userInput,
     //     enteredTitle: event.target.value,
@@ -53,7 +53,7 @@ const [enteredDate, setEnteredDate] = useState('');
 //   };
    
 const submitHandler = (event) => {
-    event.preventDefault();
+    event.preventDefault(); // prevent request being sent, page will not reload
     const expenseData = {
         title: enteredTitle,
         amount: enteredAmount,
@@ -95,7 +95,10 @@ const submitHandler = (event) => {
             </div>
         </div>
         <div className='new-expense__actions'>
-            <button type="submit">Add Expense</button>
+            <button type="button" onClick={props.onCancel}>
+                Cancel
+            </button>
+            <button type="submit" >Add expense</button>
         </div>
     </form>
   );
